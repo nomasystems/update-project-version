@@ -1,0 +1,54 @@
+name: 'Update Project Version'
+description: 'Updates the project version based on commit messages'
+inputs:
+  tag-prefix:
+    description: 'Git tag prefix (tag chars before the version chars)'
+    required: false
+    default: ''
+  tag-suffix:
+    description: 'Git tag suffix (tag chars after the version chars)'
+    required: false
+    default: ''
+  version-files:
+    description: 'Files to update with the new version'
+    required: false
+    default: ''
+runs:
+  using: "composite"
+  steps:
+    - id: checkout
+      name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0 # Required to retrieve tags
+    - id: current_dir
+      name: Obtain current directory
+      run: echo "CURRENT_DIR=$(pwd)" >> $GITHUB_ENV
+      shell: bash
+    - id: safe_directory
+      name: Add safe directory
+      run: git config --global --add safe.directory "${{ env.CURRENT_DIR }}"
+      shell: bash
+    - id: set_path
+      run: echo "${GITHUB_ACTION_PATH}" >> $GITHUB_PATH
+      shell: bash
+    - id: current_version
+      name: Obtain current version
+      run: current_version.sh "${{ inputs.tag-prefix }}" "${{ inputs.tag-suffix }}"
+      shell: bash
+    - id: new_version
+      name: Obtain new version
+      run: new_version.sh "${{ github.event.head_commit.message }}" "${{ env.CURRENT_VERSION }}"
+      shell: bash
+    - id: update_files
+      name: Update version in specified files
+      run: update_files.sh "${{ inputs.version-files }}" "${{ env.CURRENT_VERSION }}" "${{ env.NEW_VERSION }}" "${{ github.actor }}"
+      shell: bash
+    - id: new_tag
+      name: Create new tag
+      run: new_tag.sh "${{ inputs.tag-prefix }}" "${{ inputs.tag-suffix }}" "${{ env.NEW_VERSION }}"
+      shell: bash
+    - id: git_push
+      name: Push changes to git
+      run: git_push.sh
+      shell: bash

@@ -1,0 +1,21 @@
+name: version
+
+run-name: Update version
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update_version:
+    runs-on: [self-hosted, linux]
+    container:
+      image: erlang:23
+      options: "--entrypoint /bin/bash"
+    name: Update version
+    steps:
+      - id: new_version
+        uses: nomasystems/update-project-version@v1.0.0
+        with:
+          tag-prefix: "v"

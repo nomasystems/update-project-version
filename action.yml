@@ -1,6 +1,10 @@
 name: 'Update Project Version'
 description: 'Updates the project version based on commit messages'
 inputs:
+  latest-tag:
+    description: 'Indicates if an extra tag "latest" should be added'
+    required: false
+    default: 'false'
   tag-prefix:
     description: 'Git tag prefix (tag chars before the version chars)'
     required: false
@@ -46,7 +50,7 @@ runs:
       shell: bash
     - id: new_tag
       name: Create new tag
-      run: new_tag.sh "${{ inputs.tag-prefix }}" "${{ inputs.tag-suffix }}" "${{ env.NEW_VERSION }}"
+      run: new_tag.sh "${{ inputs.tag-prefix }}" "${{ inputs.tag-suffix }}" "${{ env.NEW_VERSION }}" "${{ inputs.latest-tag }}"
       shell: bash
     - id: git_push
       name: Push changes to git

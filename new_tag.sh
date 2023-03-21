@@ -12,3 +12,9 @@ git \
   -c user.name="github-actions[bot]" \
   -c user.email="github-actions[bot]@users.noreply.github.com" \
   tag -a "$new_tag" -m "$new_tag"
+
+if [[ "$1" == "true" ]]
+then
+  echo "Creating/updating tag \"latest\""
+  git push --force origin latest
+fi

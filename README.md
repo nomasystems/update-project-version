@@ -39,7 +39,7 @@ jobs:
     name: Update project version
     steps:
       - id: new_version
-        uses: nomasystems/update-project-version@v1.1.0
+        uses: nomasystems/update-project-version@latest
         with:
           tag-prefix: "v"
           version-files: "File1,File2,File3"
@@ -47,11 +47,12 @@ jobs:
 
 The action accepts the following inputs:
 
-| Input param      | Required                 | Default value | Description                                                 |
-|------------------|--------------------------|---------------|-------------------------------------------------------------|
-| `tag-preffix`    | :heavy_multiplication_x: | ''            | Git tag prefix (tag chars before the version chars)         |
-| `tag-suffix`     | :heavy_multiplication_x: | ''            | Git tag suffix (tag chars after the version chars)          |
-| `version-files`  | :heavy_multiplication_x: | ''            | Files to update with the new version (comma separated list) |
+| Input param     | Required                 | Default value | Description                                                 |
+|-----------------|--------------------------|---------------|-------------------------------------------------------------|
+| `latest-tag`    | :heavy_multiplication_x: | false         | Indicates if an extra tag "latest" should be added          |
+| `tag-preffix`   | :heavy_multiplication_x: | ''            | Git tag prefix (tag chars before the version chars)         |
+| `tag-suffix`    | :heavy_multiplication_x: | ''            | Git tag suffix (tag chars after the version chars)          |
+| `version-files` | :heavy_multiplication_x: | ''            | Files to update with the new version (comma separated list) |
 
 :warning: In order to work properly, the repository must have a "current version" given by:
 - Initial tag, from which the action will obtain the current version number

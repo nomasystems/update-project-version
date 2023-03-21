@@ -20,5 +20,5 @@ then
   git \
   -c user.name="github-actions[bot]" \
   -c user.email="github-actions[bot]@users.noreply.github.com" \
-  tag -a "latest" -m "latest"
+  tag -fa "latest" -m "latest"
 fi

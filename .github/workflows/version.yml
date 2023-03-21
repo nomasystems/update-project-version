@@ -17,4 +17,3 @@ jobs:
         with:
           latest-tag: "true"
           tag-prefix: "v"
-          

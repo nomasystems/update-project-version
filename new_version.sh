@@ -9,8 +9,11 @@ has_breaking_exclamation() {
 
 has_breaking_footer() {
   commit_message="$1"
+  echo "COMMIT MESSAGE: $commit_message"
   breaking_token1="BREAKING CHANGE"
+  echo "BREAKING TOKEN 1: $breaking_token1"
   breaking_token2="BREAKING-CHANGE"
+  echo "BREAKING TOKEN 2: $breaking_token2"
 
   if [[ "$commit_message" == *$'\n\n'"$breaking_token1: "* ]]
   then true

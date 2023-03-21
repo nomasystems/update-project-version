@@ -15,4 +15,5 @@ jobs:
       - id: new_version
         uses: nomasystems/update-project-version@latest
         with:
+          latest-tag: "true"
           tag-prefix: "v"

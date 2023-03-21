@@ -13,10 +13,10 @@ git \
   -c user.email="github-actions[bot]@users.noreply.github.com" \
   tag -a "$new_tag" -m "$new_tag"
 
-if [[ "$1" == "true" ]]
+if [[ "$4" == "true" ]]
 then
   echo "Creating/updating tag \"latest\""
   git push --force origin latest
 else
-  echo "LO QUE LLEGA COMO LATEST-TAG ES: \"$1\""
+  echo "LO QUE LLEGA COMO LATEST-TAG ES: \"$4\""
 fi

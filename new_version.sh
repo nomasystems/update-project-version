@@ -32,15 +32,15 @@ current_version_major=$(echo $current_version | cut -d. -f1)
 current_version_minor=$(echo $current_version | cut -d. -f2)
 current_version_patch=$(echo $current_version | cut -d. -f3)
 
-commit_part=$(echo $commit_message | cut -d "(" -f1)
+commit_type=$(echo "${commit_message%%:*}" | cut -d "(" -f1)
 minor_changes=("build" "chore" "ci" "docs" "feat" "perf" "refactor" "style" "test")
 if is_breaking_change "$commit_message";
 then
   new_version="`expr $current_version_major + 1`.0.0";
-elif [[ " ${minor_changes[@]} " =~ " ${commit_part} " ]]
+elif [[ " ${minor_changes[@]} " =~ " ${commit_type} " ]]
 then
   new_version="$current_version_major.`expr $current_version_minor + 1`.0"
-elif [[ "$commit_part" == "fix" ]]
+elif [[ "$commit_type" == "fix" ]]
 then
   new_version="$current_version_major.$current_version_minor.`expr $current_version_patch + 1`"
 fi

@@ -17,6 +17,4 @@ if [[ "$4" == "true" ]]
 then
   echo "Creating/updating tag \"latest\""
   git push --force origin latest
-else
-  echo "LO QUE LLEGA COMO LATEST-TAG ES: \"$4\""
 fi

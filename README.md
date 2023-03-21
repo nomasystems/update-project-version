@@ -39,7 +39,7 @@ jobs:
     name: Update project version
     steps:
       - id: new_version
-        uses: nomasystems/update-project-version@v1
+        uses: nomasystems/update-project-version@v1.1.0
         with:
           tag-prefix: "v"
           version-files: "File1,File2,File3"

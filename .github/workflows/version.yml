@@ -5,11 +5,11 @@ run-name: Update version
 on:
   push:
     branches:
-      - '**'
+      - main
 
 jobs:
   update_version:
-    runs-on: ubuntu-latest #[self-hosted, linux]
+    runs-on: [self-hosted, linux]
     name: Update version
     steps:
       - id: new_version

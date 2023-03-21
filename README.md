@@ -49,7 +49,7 @@ The action accepts the following inputs:
 
 | Input param     | Required                 | Default value | Description                                                 |
 |-----------------|--------------------------|---------------|-------------------------------------------------------------|
-| `latest-tag`    | :heavy_multiplication_x: | false         | Indicates if an extra tag "latest" should be added          |
+| `latest-tag`    | :heavy_multiplication_x: | 'false'       | Indicates if an extra tag "latest" should be added          |
 | `tag-preffix`   | :heavy_multiplication_x: | ''            | Git tag prefix (tag chars before the version chars)         |
 | `tag-suffix`    | :heavy_multiplication_x: | ''            | Git tag suffix (tag chars after the version chars)          |
 | `version-files` | :heavy_multiplication_x: | ''            | Files to update with the new version (comma separated list) |

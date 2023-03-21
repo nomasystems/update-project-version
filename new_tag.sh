@@ -16,5 +16,9 @@ git \
 if [[ "$4" == "true" ]]
 then
   echo "Creating/updating tag \"latest\""
-  git push --force origin latest
+  git push origin :refs/tags/latest
+  git \
+  -c user.name="github-actions[bot]" \
+  -c user.email="github-actions[bot]@users.noreply.github.com" \
+  tag -a "latest" -m "latest"
 fi

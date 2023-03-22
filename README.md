@@ -25,7 +25,7 @@ on:
 
 jobs:
   do_stuff:
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     name: Do stuff
     steps:
       - id: echo_stuff
@@ -35,7 +35,7 @@ jobs:
   update_version:
     if: ${{ github.ref == 'refs/heads/develop' }}
     needs: do_stuff
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     name: Update project version
     steps:
       - id: new_version

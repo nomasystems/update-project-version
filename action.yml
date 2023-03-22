@@ -1,6 +1,14 @@
 name: 'Update Project Version'
 description: 'Updates the project version based on commit messages'
 inputs:
+  extra-minor-commit-types:
+    description: 'Extra commit types for minor changes (comma separated list)'
+    required: false
+    default: ''
+  extra-patch-commit-types:
+    description: 'Extra commit types for patch changes (comma separated list)'
+    required: false
+    default: 'build,chore,ci,docs,perf,refactor,style,test'
   latest-tag:
     description: 'Indicates if an extra tag "latest" should be added'
     required: false
@@ -14,7 +22,7 @@ inputs:
     required: false
     default: ''
   version-files:
-    description: 'Files to update with the new version'
+    description: 'Files to update with the new version (comma separated list)'
     required: false
     default: ''
 runs:
@@ -42,7 +50,7 @@ runs:
       shell: bash
     - id: new_version
       name: Obtain new version
-      run: new_version.sh "${{ github.event.head_commit.message }}" "${{ env.CURRENT_VERSION }}"
+      run: new_version.sh "${{ github.event.head_commit.message }}" "${{ env.CURRENT_VERSION }}" "${{ inputs.extra-minor-commit-types }}" "${{ inputs.extra-patch-commit-types }}"
       shell: bash
     - id: update_files
       name: Update version in specified files

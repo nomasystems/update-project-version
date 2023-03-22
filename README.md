@@ -47,12 +47,14 @@ jobs:
 
 The action accepts the following inputs:
 
-| Input param     | Required                 | Default value | Description                                                 |
-|-----------------|--------------------------|---------------|-------------------------------------------------------------|
-| `latest-tag`    | :heavy_multiplication_x: | 'false'       | Indicates if an extra tag "latest" should be added          |
-| `tag-preffix`   | :heavy_multiplication_x: | ''            | Git tag prefix (tag chars before the version chars)         |
-| `tag-suffix`    | :heavy_multiplication_x: | ''            | Git tag suffix (tag chars after the version chars)          |
-| `version-files` | :heavy_multiplication_x: | ''            | Files to update with the new version (comma separated list) |
+| Input param                | Required                 | Default value                                  | Description                                                 |
+|----------------------------|--------------------------|------------------------------------------------|-------------------------------------------------------------|
+| `latest-tag`               | :heavy_multiplication_x: | 'false'                                        | Indicates if an extra tag "latest" should be added          |
+| `extra-minor-commit-types` | :heavy_multiplication_x: | ''                                             | Extra commit types for minor changes (comma separated list) |
+| `extra-patch-commit-types` | :heavy_multiplication_x: | 'build,chore,ci,docs,perf,refactor,style,test' | Extra commit types for patch changes (comma separated list) |
+| `tag-preffix`              | :heavy_multiplication_x: | ''                                             | Git tag prefix (tag chars before the version chars)         |
+| `tag-suffix`               | :heavy_multiplication_x: | ''                                             | Git tag suffix (tag chars after the version chars)          |
+| `version-files`            | :heavy_multiplication_x: | ''                                             | Files to update with the new version (comma separated list) |
 
 :warning: In order to work properly, the repository must have a "current version" given by:
 - Initial tag, from which the action will obtain the current version number
@@ -60,9 +62,9 @@ The action accepts the following inputs:
 
 :warning: In order to work properly, the project must use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the following considerations:
 - A commit message must have the form `{type}(#{issue_number}):{message}`
-- A commit with type `fix` will result in a patch update (increment the 3rd number in the version)
-- A commit with type `build`, `chore`, `ci`, `docs`, `feat`, `perf`, `refactor`, `style` or `test` will result in a minor update (increment the 2nd number in the version)
-- A commit with type `xxx!` (being `xxx` any valid type) or footers `BREAKING CHANGE: xxx` or `BREAKING-CHANGE: xxx` will result in a major update (increment the 1st number in the version)
+- A commit message starting with `xxx!` (being `xxx` any valid type/scope) or including footers `BREAKING CHANGE: xxx` or `BREAKING-CHANGE: xxx` will result in a major update (increment the 1st number in the version)
+- A commit message with types `feat` or any type under `extra-minor-commit-types` will result in a minor update (increment the 2nd number in the version)
+- A commit message with types `fix` or any type under `extra-patch-commit-types` will result in a patch update (increment the 3rd number in the version)
 
 ## Contributing
 

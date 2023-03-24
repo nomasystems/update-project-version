@@ -9,6 +9,8 @@ GitHub action to automatically update project version and create version tag.
 
 Current version in the project and use [semantic versioning](https://semver.org/) as well as [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+Breaking changes increase the major version, `feat`s increase the minor, and `fix`es increase the patch version. The rest of the commit types increase the patch by default but can be configured to increase the minor version.
+
 ## Usage
 
 Add a step to your GitHub workflow using the action. For example:

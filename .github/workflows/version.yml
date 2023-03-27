@@ -9,7 +9,7 @@ on:
 
 jobs:
   update_version:
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
     name: Update version
     steps:
       - id: new_version

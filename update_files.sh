@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files_str=$1
+files_str="$1"
 echo $files_str
 IFS=',' read -r -a files <<< $files_str
 
@@ -9,11 +9,11 @@ then
   echo "No files to update"
 else
 
-  current_version=$2
+  current_version="$2"
   echo $current_version
-  new_version=$3
+  new_version="$3"
   echo $new_version
-  author=$4
+  author="$4"
   echo $author
   echo "Updating version in files \"$files_str\" from \"$current_version\" to \"$new_version\""
 

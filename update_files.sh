@@ -8,10 +8,10 @@ then
   echo "No files to update"
 else
 
-  current_version=$2
+  current_version="$2"
   escaped_current_version="${current_version//\./\.}"
   echo "escaped_current_version=$escaped_current_version"
-  new_version=$3
+  new_version="$3"
   escaped_new_version="${new_version//\./\.}"
   echo "escaped_new_version=$escaped_new_version"
   author=$4

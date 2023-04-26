@@ -1,6 +1,6 @@
 PKG_BUILD     = 1
 PKG_REVISION ?= $(shell git describe --all)
-PKG_VERSION	 ?= 1.7.0
+PKG_VERSION	 ?= 1.7.1
 PKG_ID        = topup-gateway-$(PKG_VERSION)
 PKG_BASE_DIR  = package
 REBAR        ?= rebar3
@@ -105,14 +105,14 @@ test: test-balance test-tsira test-apirest # test-multinode
 
 test-apirest: test-clean
 	$(REBAR) ct --cover $(VERBOSE_PARAM) --cover_export_name=apirestcover --dir=apps/apirest/test/ \
-	--name='node1@127.0.0.1' --spec=apps/apirest/test/conf/test.spec
+	--name='node1@1.7.1.0.1' --spec=apps/apirest/test/conf/test.spec
 
 test-apirest-verbose: VERBOSE_PARAM = --verbose
 test-apirest-verbose: test-apirest
 
 test-balance: test-clean
 	$(REBAR) ct --cover $(VERBOSE_PARAM) --cover_export_name=balancecover --dir=apps/balance_db/test/ \
-	--name='node1@127.0.0.1' --spec=apps/balance_db/test/conf/test.spec
+	--name='node1@1.7.1.0.1' --spec=apps/balance_db/test/conf/test.spec
 
 test-balance-verbose: VERBOSE_PARAM = --verbose
 test-balance-verbose: test-balance
@@ -123,7 +123,7 @@ test-clean:
 
 test-tsira: test-clean
 	$(REBAR) ct --cover $(VERBOSE_PARAM) --cover_export_name=tsiracover --dir=apps/tsira/test/ \
-	--name='node1@127.0.0.1' --spec=apps/tsira/test/conf/test.spec
+	--name='node1@1.7.1.0.1' --spec=apps/tsira/test/conf/test.spec
 
 test-tsira-verbose: VERBOSE_PARAM = --verbose
 test-tsira-verbose: test-tsira

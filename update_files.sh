@@ -1,6 +1,7 @@
 #!/bin/bash
 
 files_str=$1
+echo $files_str
 IFS=',' read -r -a files <<< $files_str
 
 if [[ ${#files[@]} -eq 0 ]]
@@ -9,8 +10,11 @@ then
 else
 
   current_version=$2
+  echo $current_version
   new_version=$3
+  echo $new_version
   author=$4
+  echo $author
   echo "Updating version in files \"$files_str\" from \"$current_version\" to \"$new_version\""
 
   for file in ${files[@]}

@@ -5,7 +5,7 @@ run-name: Update version
 on:
   push:
     branches:
-      - main
+      - '**'
 
 jobs:
   update_version:
@@ -15,5 +15,6 @@ jobs:
       - id: new_version
         uses: nomasystems/update-project-version@latest
         with:
-          latest-tag: "true"
+          latest-tag: "false"
           tag-prefix: "v"
+          version-files: "Makefile"

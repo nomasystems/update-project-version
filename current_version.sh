@@ -1,9 +1,11 @@
 #!/bin/bash
 
 last_tag=$(git describe --tags --abbrev=0)
+echo $last_tag
 if [[ $last_tag == "latest" ]]
 then
   last_tag=$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)
+  echo $(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=4`)
 fi
 prefix=$1
 suffix=$2

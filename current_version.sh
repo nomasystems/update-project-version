@@ -4,7 +4,6 @@ last_tag=$(git describe --tags --abbrev=0)
 if [[ $last_tag == "latest" ]]
 then
   last_tag=$(git describe --abbrev=0 --tags `git rev-list --tags --skip=1 --max-count=1`)
-  last_tag=v1.7.0
 fi
 prefix=$1
 suffix=$2

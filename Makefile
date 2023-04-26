@@ -1,6 +1,6 @@
 PKG_BUILD     = 1
 PKG_REVISION ?= $(shell git describe --all)
-PKG_VERSION	 ?= 1.7.0
+PKG_VERSION	 ?= 1.7.1
 PKG_ID        = topup-gateway-$(PKG_VERSION)
 PKG_BASE_DIR  = package
 REBAR        ?= rebar3

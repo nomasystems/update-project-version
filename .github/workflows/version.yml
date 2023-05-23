@@ -19,3 +19,4 @@ jobs:
           committer-username: "github-ci-noma"
           latest-tag: "true"
           tag-prefix: "v"
+

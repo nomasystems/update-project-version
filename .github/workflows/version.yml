@@ -19,3 +19,4 @@ jobs:
           committer-username: "AidaAP"
           latest-tag: "true"
           tag-prefix: "v"
+

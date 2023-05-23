@@ -4,11 +4,11 @@ inputs:
   committer-email:
     description: 'Committer e-mail'
     required: false
-    default: 'github-actions[bot]@users.noreply.github.com'
+    default: 'aida.aljan@nomasystems.com' #'github-actions[bot]@users.noreply.github.com'
   committer-username:
     description: 'Committer username'
     required: false
-    default: 'github-actions[bot]'
+    default: 'AidaAP' #'github-actions[bot]'
   extra-minor-commit-types:
     description: 'Extra commit types for minor changes (comma separated list)'
     required: false

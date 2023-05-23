@@ -16,6 +16,6 @@ jobs:
         uses: nomasystems/update-project-version@latest
         with:
           committer-email: "87307170+AidaAP@users.noreply.github.com"
-          committer-username: "AidaAP"
+#          committer-username: "AidaAP"
           latest-tag: "true"
           tag-prefix: "v"

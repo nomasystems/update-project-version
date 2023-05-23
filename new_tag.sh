@@ -3,8 +3,8 @@
 prefix=$1
 suffix=$2
 new_version=$3
-committer_username=$5
-committer_email=$6
+committer_email=$5
+committer_username=$6
 
 echo "COMMITTER USERNAME: $committer_username"
 echo "COMMITTER EMAIL: $committer_email"

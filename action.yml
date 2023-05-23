@@ -4,11 +4,11 @@ inputs:
   committer-email:
     description: 'Committer e-mail'
     required: false
-    default: 'github.ci@nomasystems.com' #'github-actions[bot]@users.noreply.github.com'
+    default: 'github-actions[bot]@users.noreply.github.com'
   committer-username:
     description: 'Committer username'
     required: false
-    default: 'github-ci-noma' #'github-actions[bot]'
+    default: 'github-actions[bot]'
   extra-minor-commit-types:
     description: 'Extra commit types for minor changes (comma separated list)'
     required: false

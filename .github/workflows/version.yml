@@ -5,7 +5,7 @@ run-name: Update version
 on:
   push:
     branches:
-      - '**'
+      - main
 
 jobs:
   update_version:
@@ -15,7 +15,5 @@ jobs:
       - id: new_version
         uses: nomasystems/update-project-version@latest
         with:
-          committer-email: "87307170+AidaAP@users.noreply.github.com"
-          committer-username: "AidaAP"
           latest-tag: "true"
           tag-prefix: "v"

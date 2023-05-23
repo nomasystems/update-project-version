@@ -6,6 +6,9 @@ new_version=$3
 committer_username=$5
 committer_email=$6
 
+echo "COMMITTER USERNAME: $committer_username"
+echo "COMMITTER EMAIL: $committer_email"
+
 new_tag=$prefix$new_version$suffix
 
 echo "Creating new tag \"$new_tag\""

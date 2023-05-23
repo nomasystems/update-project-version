@@ -8,7 +8,7 @@ inputs:
   committer-username:
     description: 'Committer username'
     required: false
-    default: 'AidaAP' #'github-actions[bot]'
+    default: 'Aida Alján Porto' #'github-actions[bot]'
   extra-minor-commit-types:
     description: 'Extra commit types for minor changes (comma separated list)'
     required: false

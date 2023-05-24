@@ -1,6 +1,14 @@
 name: 'Update Project Version'
 description: 'Updates the project version based on commit messages'
 inputs:
+  committer-email:
+    description: 'Committer e-mail'
+    required: false
+    default: 'github-actions[bot]@users.noreply.github.com'
+  committer-username:
+    description: 'Committer username'
+    required: false
+    default: 'github-actions[bot]'
   extra-minor-commit-types:
     description: 'Extra commit types for minor changes (comma separated list)'
     required: false
@@ -54,11 +62,11 @@ runs:
       shell: bash
     - id: update_files
       name: Update version in specified files
-      run: update_files.sh "${{ inputs.version-files }}" "${{ env.CURRENT_VERSION }}" "${{ env.NEW_VERSION }}" "${{ github.actor }}"
+      run: update_files.sh "${{ inputs.version-files }}" "${{ env.CURRENT_VERSION }}" "${{ env.NEW_VERSION }}" "${{ github.actor }}" "${{ inputs.committer-email }}" "${{ inputs.committer-username }}"
       shell: bash
     - id: new_tag
       name: Create new tag
-      run: new_tag.sh "${{ inputs.tag-prefix }}" "${{ inputs.tag-suffix }}" "${{ env.NEW_VERSION }}" "${{ inputs.latest-tag }}"
+      run: new_tag.sh "${{ inputs.tag-prefix }}" "${{ inputs.tag-suffix }}" "${{ env.NEW_VERSION }}" "${{ inputs.latest-tag }}" "${{ inputs.committer-email }}" "${{ inputs.committer-username }}"
       shell: bash
     - id: git_push
       name: Push changes to git

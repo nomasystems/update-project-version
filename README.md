@@ -51,9 +51,11 @@ The action accepts the following inputs:
 
 | Input param                | Required                 | Default value                                  | Description                                                 |
 |----------------------------|--------------------------|------------------------------------------------|-------------------------------------------------------------|
-| `latest-tag`               | :heavy_multiplication_x: | 'false'                                        | Indicates if an extra tag "latest" should be added          |
+| `committer-email`          | :heavy_multiplication_x: | 'github-actions[bot]@users.noreply.github.com' | Committer e-mail                                            |
+| `committer-username`       | :heavy_multiplication_x: | 'github-actions[bot]'                          | Committer username                                          |
 | `extra-minor-commit-types` | :heavy_multiplication_x: | ''                                             | Extra commit types for minor changes (comma separated list) |
 | `extra-patch-commit-types` | :heavy_multiplication_x: | 'build,chore,ci,docs,perf,refactor,style,test' | Extra commit types for patch changes (comma separated list) |
+| `latest-tag`               | :heavy_multiplication_x: | 'false'                                        | Indicates if an extra tag "latest" should be added          |
 | `tag-preffix`              | :heavy_multiplication_x: | ''                                             | Git tag prefix (tag chars before the version chars)         |
 | `tag-suffix`               | :heavy_multiplication_x: | ''                                             | Git tag suffix (tag chars after the version chars)          |
 | `version-files`            | :heavy_multiplication_x: | ''                                             | Files to update with the new version (comma separated list) |

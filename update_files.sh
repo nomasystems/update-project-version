@@ -14,6 +14,8 @@ else
   new_version="$3"
   escaped_new_version="${new_version//./"$escaped_dot"}"
   author=$4
+  committer_email=$5
+  committer_username=$6
   echo "Updating version in files \"$files_str\" from \"$current_version\" to \"$new_version\""
 
   for file in ${files[@]}
@@ -26,8 +28,8 @@ else
   echo "Committing changes"
   git add .
   git \
-    -c user.name="github-actions[bot]" \
-    -c user.email="github-actions[bot]@users.noreply.github.com" \
+    -c user.name="$committer_username" \
+    -c user.email="$committer_email" \
     commit -m "New version $new_version" --author="$author"
 
 fi
